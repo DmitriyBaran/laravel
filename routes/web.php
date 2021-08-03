@@ -22,6 +22,11 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function (){
 Route::resource('rest', 'RestTestController')->names('restTest');
 Auth::routes();
 
+Route::group(['prefix' => 'digging_deeper'], function (){
+   Route::get('collections', 'DiggingDeeperController@collections')
+       ->name('digging_deeper.collections');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
