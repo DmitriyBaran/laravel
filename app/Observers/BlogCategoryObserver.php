@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\BlogCategory;
+use Illuminate\Support\Str;
 
 class BlogCategoryObserver
 {
@@ -33,7 +34,7 @@ class BlogCategoryObserver
     protected function setSlug(BlogCategory $blogCategory)
     {
         if (empty($blogCategory->slug)) {
-            $blogCategory->slug = str_slug($blogCategory->title);
+            $blogCategory->slug = Str::slug($blogCategory->title);
         }
     }
 

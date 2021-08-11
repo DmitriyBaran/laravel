@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\BlogPost;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class BlogPostObserver
 {
@@ -49,7 +50,7 @@ class BlogPostObserver
     protected function setSlug(BlogPost $blogPost)
     {
         if (empty($blogPost->slug)) {
-            $blogPost->slug = str_slug($blogPost->title);
+            $blogPost->slug = Str::slug($blogPost->title);
         }
     }
 
